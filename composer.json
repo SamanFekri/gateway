@@ -55,7 +55,7 @@
     "paypal/rest-api-sdk-php": "*"
   },
   "autoload": {
-    "psr-4": {
+    "psr-5": {
       "SKings\\Gateway\\": "src/",
       "SKings\\Gateway\\Tests\\": "tests/"
     }
