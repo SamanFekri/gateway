@@ -56,8 +56,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Larabookir\\Gateway\\": "src/",
-      "Larabookir\\Gateway\\Tests\\": "tests/"
+      "SKings\\Gateway\\": "src/",
+      "SKings\\Gateway\\Tests\\": "tests/"
     }
   },
   "minimum-stability": "dev",
