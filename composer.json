@@ -64,10 +64,10 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Larabookir\\Gateway\\GatewayServiceProvider"
+        "SKings\\Gateway\\GatewayServiceProvider"
       ],
       "aliases": {
-        "Gateway": "Larabookir\\Gateway\\Gateway"
+        "BankGateway": "SKings\\Gateway\\Gateway"
       }
     }
   }
