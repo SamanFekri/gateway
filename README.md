@@ -34,13 +34,13 @@ STEP 2 : Add `provider` and `facade` in config/app.php
 
     'providers' => [
       ...
-      SKings\Gateway\GatewayServiceProvider::class, // <-- add this line at the end of provider array
+      Larabookir\Gateway\GatewayServiceProvider::class, // <-- add this line at the end of provider array
     ],
 
 
     'aliases' => [
       ...
-      'BankGateway' => SKings\Gateway\Gateway::class, // <-- add this line at the end of aliases array
+      'Gateway' => Larabookir\Gateway\Gateway::class, // <-- add this line at the end of aliases array
     ]
 
 Step 3:  

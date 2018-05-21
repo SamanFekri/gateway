@@ -56,18 +56,18 @@
   },
   "autoload": {
     "psr-4": {
-      "SKings\\Gateway\\": "src/",
-      "SKings\\Gateway\\Tests\\": "tests/"
+      "Larabookir\\Gateway\\": "src/",
+      "Larabookir\\Gateway\\Tests\\": "tests/"
     }
   },
   "minimum-stability": "dev",
   "extra": {
     "laravel": {
       "providers": [
-        "SKings\\Gateway\\GatewayServiceProvider"
+        "Larabookir\\Gateway\\GatewayServiceProvider"
       ],
       "aliases": {
-        "BankGateway": "SKings\\Gateway\\Gateway"
+        "Gateway": "Larabookir\\Gateway\\Gateway"
       }
     }
   }
