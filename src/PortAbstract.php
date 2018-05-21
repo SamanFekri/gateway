@@ -91,7 +91,7 @@ abstract class PortAbstract
 	/**
 	 * @return mixed
 	 */
-	function getTable()
+	function getTable() 
 	{
 		return $this->db->table($this->config->get('gateway.table'));
 	}
@@ -171,6 +171,14 @@ abstract class PortAbstract
 	}
 
 	/**
+	 * get price
+	 */
+	function getPrice()
+	{
+		return $this->amount;
+	}
+
+	/**
 	 * Return result of payment
 	 * If result is done, return true, otherwise throws an related exception
 	 *
@@ -183,16 +191,19 @@ abstract class PortAbstract
 	function verify($transaction)
 	{
 		$this->transaction = $transaction;
-		$this->transactionId = intval($transaction->id);
+		$this->transactionId = $transaction->id;
 		$this->amount = intval($transaction->price);
 		$this->refId = $transaction->ref_id;
 	}
 
 	function getTimeId()
 	{
-		$uid = time();
+		$genuid = function(){
+			return substr(str_pad(str_replace('.','', microtime(true)),12,0),0,12);
+		};
+		$uid=$genuid();
 		while ($this->getTable()->whereId($uid)->first())
-			$uid = time();
+			$uid = $genuid();
 		return $uid;
 	}
 
@@ -204,6 +215,7 @@ abstract class PortAbstract
 	protected function newTransaction()
 	{
 		$uid = $this->getTimeId();
+
 		$this->transactionId = $this->getTable()->insert([
 			'id' => $uid,
 			'port' => $this->getPortName(),
@@ -312,6 +324,7 @@ abstract class PortAbstract
 
 		return (!empty($url_array['scheme']) ? $url_array['scheme'] . '://' : null) .
 		(!empty($url_array['host']) ? $url_array['host'] : null) .
+		(!empty($url_array['port']) ? ':' . $url_array['port'] : null) .
 		$url_array['path'] . '?' . http_build_query($query_array);
 	}
 }
